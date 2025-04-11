@@ -1,6 +1,6 @@
 
 import { ParkingSpot } from "@/types/parking";
-import { Car, Clock, DollarSign, MapPin, Navigation } from "lucide-react";
+import { Clock, IndianRupee, MapPin, Navigation } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 
@@ -65,8 +65,8 @@ const ParkingSpotList = ({
                           
                           {spot.price !== null && (
                             <span className="flex items-center mr-3">
-                              <DollarSign className="h-3 w-3 mr-1" />
-                              ${spot.price}/hr
+                              <IndianRupee className="h-3 w-3 mr-1" />
+                              {spot.price}/hr
                             </span>
                           )}
                           

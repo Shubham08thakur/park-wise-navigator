@@ -1,9 +1,9 @@
 
 import { ParkingSpot } from "@/types/parking";
 
-// Central location (city center coordinates)
-const CENTER_LATITUDE = 40.7128;
-const CENTER_LONGITUDE = -74.0060;
+// Central location (Mumbai city center coordinates)
+const CENTER_LATITUDE = 19.076;
+const CENTER_LONGITUDE = 72.8777;
 
 // Generate random coordinates within a certain range of the center
 const generateRandomCoordinate = (center: number, range: number) => {
@@ -13,6 +13,11 @@ const generateRandomCoordinate = (center: number, range: number) => {
 // Generate a mock dataset of parking spots
 export const generateMockParkingSpots = (count: number): ParkingSpot[] => {
   const spots: ParkingSpot[] = [];
+  
+  // Indian street names for random generation
+  const streetNames = ['M.G. Road', 'S.V. Road', 'Linking Road', 'Hill Road', 'J.P. Road', 'Juhu Road'];
+  const streetTypes = ['', 'Lane', 'Marg', 'Nagar', 'Colony'];
+  const areas = ['Andheri', 'Bandra', 'Juhu', 'Worli', 'Colaba', 'Dadar'];
   
   for (let i = 0; i < count; i++) {
     const latitude = generateRandomCoordinate(CENTER_LATITUDE, 0.02);
@@ -25,14 +30,14 @@ export const generateMockParkingSpots = (count: number): ParkingSpot[] => {
       latitude,
       longitude,
       available,
-      price: Math.random() > 0.3 ? Math.floor(Math.random() * 20) + 1 : null,
+      price: Math.random() > 0.3 ? Math.floor(Math.random() * 100) + 20 : null, // Price in rupees
       timeLimit: Math.random() > 0.3 ? Math.floor(Math.random() * 120) + 30 : null,
       prediction: {
         willBeAvailable,
         inMinutes: willBeAvailable ? Math.floor(Math.random() * 30) + 5 : null
       },
       lastUpdated: new Date().toISOString(),
-      address: `${Math.floor(Math.random() * 200) + 1} ${['Main', 'Park', 'Broadway', 'Oak', 'Maple', 'Cedar'][Math.floor(Math.random() * 6)]} ${['St', 'Ave', 'Blvd', 'Rd'][Math.floor(Math.random() * 4)]}`
+      address: `${Math.floor(Math.random() * 200) + 1}, ${streetNames[Math.floor(Math.random() * streetNames.length)]}, ${areas[Math.floor(Math.random() * areas.length)]}, ${streetTypes[Math.floor(Math.random() * streetTypes.length)]}`
     });
   }
   

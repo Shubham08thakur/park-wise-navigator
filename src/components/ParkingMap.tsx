@@ -1,11 +1,11 @@
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { ParkingSpot } from "@/types/parking";
 import { 
   MapPin, 
   Car, 
   Clock, 
-  DollarSign, 
+  IndianRupee, 
   Navigation 
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
@@ -93,8 +93,8 @@ const ParkingMap = ({
           key={spot.id}
           className={`absolute cursor-pointer transition-all duration-300 hover:z-30 ${selectedSpot?.id === spot.id ? 'z-20 scale-110' : 'z-10'}`}
           style={{ 
-            left: `${((spot.longitude + 74.01) / 0.04) * 100}%`,
-            top: `${((40.722 - spot.latitude) / 0.04) * 100}%`,
+            left: `${((spot.longitude - 72.8577) / 0.04) * 100}%`,
+            top: `${((19.096 - spot.latitude) / 0.04) * 100}%`,
             transform: 'translate(-50%, -50%)'
           }}
           onClick={() => onSelectSpot(spot)}
@@ -125,8 +125,8 @@ const ParkingMap = ({
                 <div className="flex mt-1 space-x-2 text-gray-600">
                   {spot.price !== null && (
                     <div className="flex items-center">
-                      <DollarSign className="h-3 w-3 mr-0.5" />
-                      <span>${spot.price}/hr</span>
+                      <IndianRupee className="h-3 w-3 mr-0.5" />
+                      <span>{spot.price}/hr</span>
                     </div>
                   )}
                   

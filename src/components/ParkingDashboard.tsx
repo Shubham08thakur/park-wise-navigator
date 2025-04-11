@@ -59,10 +59,10 @@ const ParkingDashboard = () => {
           variant: "destructive"
         });
         
-        // Use default location for demonstration
+        // Use default Mumbai location
         setUserLocation({
-          latitude: 40.7128,
-          longitude: -74.0060
+          latitude: 19.076,
+          longitude: 72.8777
         });
       }
     );
@@ -76,9 +76,9 @@ const ParkingDashboard = () => {
   return (
     <div className="container max-w-6xl mx-auto px-4 py-8">
       <header className="mb-6">
-        <h1 className="text-3xl font-bold">Smart Parking Assistant</h1>
+        <h1 className="text-3xl font-bold">Smart Parking Mumbai</h1>
         <p className="text-muted-foreground mt-1">
-          Find available parking spots near you in real-time
+          Find available parking spots in Mumbai in real-time
         </p>
       </header>
       
@@ -98,11 +98,11 @@ const ParkingDashboard = () => {
           <div className="bg-white shadow-sm rounded-lg p-4 mb-6">
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h2 className="text-xl font-semibold">Location</h2>
+                <h2 className="text-xl font-semibold">Your Location</h2>
                 <p className="text-sm text-muted-foreground">
                   {userLocation 
-                    ? "Using your current location" 
-                    : "Location access denied. Using default location."}
+                    ? "Using your current location in Mumbai" 
+                    : "Location access denied. Using Mumbai city center."}
                 </p>
               </div>
               <Button 
